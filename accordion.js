@@ -32,17 +32,35 @@ const faqFactory = (faqHTMl) => {
             this._question.style.color = darkPurple;
         },
 
+        showAnswer() {
+            this._accordionIcon.src = iconMinus;
+            this._answer.style.display = 'block';
+        },
+
+        hideAnswer() {
+            this._accordionIcon.src = iconPlus;
+            this._answer.style.display = 'none';
+        },
+
         accordionIconClicked() {
             if (this._isAnswerDisplayed) {
-                this._accordionIcon.src = iconPlus;
-                this._answer.style.display = 'none';
+                this.hideAnswer()
             } else {
-                this._accordionIcon.src = iconMinus;
-                this._answer.style.display = 'block';
+                this.showAnswer()
             }
 
             this._isAnswerDisplayed = !this._isAnswerDisplayed;
-        }
+        },
+
+        keyPressed(event) {
+            if (event.key === 'ArrowUp' && this._isAnswerDisplayed) {
+                this.hideAnswer();
+            } else if (event.key === 'ArrowDown' && !this._isAnswerDisplayed) {
+                this.showAnswer();
+            }
+
+            this._isAnswerDisplayed = !this._isAnswerDisplayed;
+          }
     };
 
     return faq;
@@ -50,8 +68,6 @@ const faqFactory = (faqHTMl) => {
 
 
 let faqContainers = document.getElementsByClassName('faq-container');
-
-// TODO Navigate the questions and hide/show answers using keyboard navigation alone
 
 Array.from(faqContainers).forEach(faqContainer => {
     let faq = faqFactory(faqContainer);
@@ -66,5 +82,9 @@ Array.from(faqContainers).forEach(faqContainer => {
 
     faq.question.addEventListener('mouseout', () => {
         faq.questionMouseOut();
+    });
+
+    faq.question.addEventListener('keydown', (event) => {
+        faq.keyPressed(event);
     });
 });
