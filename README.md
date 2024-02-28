@@ -23,13 +23,7 @@ This is a solution to the [FAQ accordion challenge on Frontend Mentor](https://w
 
 ### Screenshot
 
-#### Desktop view
-
 ![screenshot-desktop](./screenshots/screenshot-desktop.png)
-
-#### Mobile view
-
-![screenshot-mobile](./screenshots/screenshot-mobile.png)
 
 ### Links
 
