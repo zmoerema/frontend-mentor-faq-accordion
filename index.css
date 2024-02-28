@@ -32,7 +32,6 @@ body {
 
   color: var(--Dark-purple);
   font-family: "Work Sans";
-  padding: 100px 0;
   font-size: 16px;
 
   display: flex;
@@ -42,7 +41,9 @@ body {
 
 #container {
   background-color: var(--White);
+  width: calc(100% - 60px);
   border-radius: 15px;
+  max-width: 600px;
   padding: 30px;
   margin: 30px;
   height: 100%;
@@ -71,6 +72,10 @@ header {
   gap: 20px;
 }
 
+.q-container:hover {
+	color: var(--Purple);
+}
+
 .question {
   font-size: 1em;
 }
@@ -86,19 +91,10 @@ header {
   body {
     background-image: url("assets/images/background-pattern-mobile.svg");
   }
-
-  #container {
-    width: 100em;
-    
-  }
 }
 
 @media only screen and (min-width: 768px) {
   body {
     background-image: url("assets/images/background-pattern-desktop.svg");
-  }
-
-  #container {
-    width: 35em;
   }
 }
