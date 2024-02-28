@@ -51,6 +51,8 @@ const faqFactory = (faqHTMl) => {
 
 let faqContainers = document.getElementsByClassName('faq-container');
 
+// TODO Navigate the questions and hide/show answers using keyboard navigation alone
+
 Array.from(faqContainers).forEach(faqContainer => {
     let faq = faqFactory(faqContainer);
     
